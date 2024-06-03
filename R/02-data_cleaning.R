@@ -13,4 +13,4 @@ data_processed <- data_processed |>
 
 glimpse(data_processed)
 
-write.csv(data_processed, "data/processed/data_processed")
+write.csv(data_processed, "data/processed/data_processed.csv")
