@@ -10,6 +10,7 @@ data_processed <- data_processed |>
   mutate(date = as.Date(date, origin = "1899-12-30"))
 
 #change time
-#change NA in row alu_nr
 
 glimpse(data_processed)
+
+write.csv(data_processed, "data/processed/data_processed")
