@@ -1,0 +1,43 @@
+---
+title: "What is the difference in the amount of incorrectly deposited waste in a single bin compared to a recycling station at ETH Campus Hönggerberg"
+date: today
+author: 
+  - name: Fabienne Kappeler
+    orcid: 0000-0003-2196-5015
+    email: fkappeler@ethz.ch
+    affiliation: 
+      - name: ETH Zurich
+        url: https://ethz.ch/de.html
+abstract: 
+  The abstract will be placed here. Breaks can be added by hitting return on the keyboard.
+license: "CC BY"
+format:
+  html: 
+    toc: true
+citation: 
+  container-title: My Blog
+  url: https://www.example.com
+bibliography: references.bib
+csl: apa.csl
+editor: visual
+---
+
+# Introduction
+
+Solid waste management represents a big challenge worldwide [@kassim2012importance]. One approach to waste management is recycling. To do so successfully, the participation of the government, residents, businesses and other institutions is needed, including ETH Zurich. For students to recycle properly, the neccessary infrastructure has to be present, such as the amount of recycling stations.
+
+This study examines the amount of incorrectly deposited waste at recycling stations compared to single waste bins. To do so, waste was separated at recycling stations and compared to single waste bins in various buildings on the ETH Campus Hönggerberg.
+
+# Methods
+
+To sample the data, the Waste of two recycling stations which include a pet, aluminium, compost, and general waste compartment and two single waste bins was collected and sorted. The waste was sorted into pet, alu, glas, compost, paper, and general waste. To identify the amount of waste the content of the different waste categories were weighed. In order to better represent the contamination in the pet and aluminum station, the number of bottles and cans was also counted, as there was still some liquid in the containers, which has a major influence on the weight due to the light weight of the containers.
+
+The data was sampled between 8:00 and 9:00 on a tuesday after a bank holiday. Due to this, a part of the waste stations and waste bins were empty or had only little content, which could falsify the results.
+
+# Results
+
+# Conclusions
+
+Even though there is only little data available from sampling, it clearly shows how effective recycling stations are compared to single waste bins. The data suggests that a lot of students recycle properly if there is a recycling station available, but don't recycle if there is a single waste bin near them. This assumption is supported by a study [@kelly2006university], where 83% of the students interviewed stated that they would recycle more often if there were more bins around campus. Therefore, a way to improve recycling would be to install more recycling stations maybe to the point where there are no single waste bins around. Another approach would be to remove the single waste bins. Maybe students would be willing to walk further to throw away their waste rather than littering, though this would have to be further investigated.
+
+# References
