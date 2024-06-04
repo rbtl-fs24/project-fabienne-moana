@@ -7,9 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Fabienne Kappeler">
-<meta name="dcterms.date" content="2024-06-03">
+<meta name="dcterms.date" content="2024-06-04">
 
-<title>What is the difference in the amount of incorrectly deposited waste in a single bin compared to a recycling station at ETH Campus Hönggerberg</title>
+<title>How well do students recycle at ETH Campus Hönggerberg</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -21,6 +21,40 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 /* CSS for citations */
 div.csl-bib-body { }
@@ -79,7 +113,7 @@ div.csl-indent {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">What is the difference in the amount of incorrectly deposited waste in a single bin compared to a recycling station at ETH Campus Hönggerberg</h1>
+<h1 class="title">How well do students recycle at ETH Campus Hönggerberg</h1>
 </div>
 
 
@@ -105,7 +139,7 @@ div.csl-indent {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">June 3, 2024</p>
+      <p class="date">June 4, 2024</p>
     </div>
   </div>
   
@@ -125,20 +159,179 @@ div.csl-indent {
 
 <section id="introduction" class="level1">
 <h1>Introduction</h1>
-<p>Solid waste management represents a big challenge worldwide <span class="citation" data-cites="kassim2012importance">(<a href="#ref-kassim2012importance" role="doc-biblioref">Kassim, 2012</a>)</span>. One approach to waste management is recycling. To do so successfully, the participation of the government, residents, businesses and other institutions is needed, including ETH Zurich. For students to recycle properly, the neccessary infrastructure has to be present, such as the amount of recycling stations.</p>
-<p>This study examines the amount of incorrectly deposited waste at recycling stations to single waste bins. To do so waste was separated at recycling stations and compared to single waste bins in various buildings on the Campus Hönggerberg.</p>
+<p>Solid waste management represents a big challenge worldwide <span class="citation" data-cites="kassim2012importance">(<a href="#ref-kassim2012importance" role="doc-biblioref">Kassim, 2012</a>)</span>. One approach to waste management is recycling. To do so successfully, the participation of the government, residents, businesses and other institutions is needed, including ETH Zurich. For students to recycle properly, the neccessary infrastructure has to be present, such as a good amount of recycling stations.</p>
+<p>This study examines the amount of incorrectly deposited waste at recycling stations and at single waste bins. To do so, waste was separated at recycling stations and at single waste bins in various buildings on the ETH Campus Hönggerberg.</p>
 </section>
 <section id="methods" class="level1">
 <h1>Methods</h1>
-<p>To sample the data, the Waste of two recycling stations which include a pet, aluminium, compost, and general waste compartment and two single waste bins was collected and sorted. The waste was sorted into pet, alu, glas, compost, paper, and general waste. To identify the amount of waste the content of the different waste categories were weighed. In order to better represent the contamination in the pet and aluminum station, the number of bottles and cans was also counted, as there was still some liquid in the containers, which has a major influence on the weight due to the light weight of the containers.</p>
-<p>The data was sampled between 8:00 and 9:00 on a tuesday after a bank holiday. Due to this, a part of the waste stations and waste bins were empty or had only little content, which could falsify the results.</p>
+<p>To sample the data, the Waste of two recycling stations which include a pet, aluminium, compost, and general waste compartment and two single waste bins were collected and sorted. The waste was sorted into pet, alu, glas, compost, paper, and general waste. To identify the amount of waste the content of the different waste categories was weighed. In order to better represent the contamination in the pet and aluminum station, the number of bottles and cans was also counted, as there was still some liquid in the containers, which has a major influence on the weight due to the light weight of the containers.</p>
+<p>The data was sampled between 8:00 and 9:00 on a tuesday after a bank holiday. Due to this, parts of the waste stations and waste bins were empty or had only little content.</p>
 </section>
 <section id="results" class="level1">
 <h1>Results</h1>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggridges)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggthemes)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>alu <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"data/final/data_alu.csv"</span>))</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>pet <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"data/final/data_pet.csv"</span>))</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>compost <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"data/final/data_compost.csv"</span>))</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>data_long <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"data/final/data_long.csv"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Plot xy gives an overview of how well students recycle at ETH Campus Hönggerberg. The plot shows well that at recycling stations only very little waste is deposited incorrectly, whereas at the single waste bin, half of the waste is deposited incorrectly.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> data_long,</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> bin_type,</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>                     <span class="at">y =</span> percentage,</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>                     <span class="at">fill =</span> waste_type)) <span class="sc">+</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">position=</span><span class="st">"stack"</span>, </span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>           <span class="at">stat=</span><span class="st">"identity"</span>)<span class="sc">+</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>   <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Bin Type"</span>,</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Percentage"</span>,</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>       <span class="at">title =</span> <span class="st">"Overview of percentage of waste type in each bin category"</span>,</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>       <span class="at">fill =</span> <span class="st">"Waste Type"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>As the aluminium cans and pet bottles often still contained liquids and therefore the weight doesn’t represent the content correctly, the number of bottles and cans was also registered. <a href="#tbl-alu" class="quarto-xref">Table&nbsp;1</a> and <a href="#tbl-pet" class="quarto-xref">Table&nbsp;2</a> show the numbers of pet bottles and aluminium cans correclty and incorrectly deposited at the recycling stations.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>alu <span class="sc">|&gt;</span> </span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable</span>(<span class="at">full_width =</span> F)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="tbl-alu" class="cell quarto-float anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-alu-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;1: Overview of how many pet bottles are incorrectly thrown into the aluminium recycling station
+</figcaption>
+<div aria-describedby="tbl-alu-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output-display">
+<table class="do-not-create-environment cell table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: right;">X</th>
+<th style="text-align: left;">location</th>
+<th style="text-align: right;">alu_nr</th>
+<th style="text-align: right;">pet_nr</th>
+<th style="text-align: right;">percentage_false</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">HPS</td>
+<td style="text-align: right;">120</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">2</td>
+<td style="text-align: left;">HPV</td>
+<td style="text-align: right;">26</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</figure>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>pet <span class="sc">|&gt;</span> </span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable</span>(<span class="at">full_width =</span> F)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="tbl-pet" class="cell quarto-float anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-pet-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;2: Overview of how many aluminium bottles are incorrectly thrown away into the pet recycling station
+</figcaption>
+<div aria-describedby="tbl-pet-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output-display">
+<table class="do-not-create-environment cell table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: right;">X</th>
+<th style="text-align: left;">location</th>
+<th style="text-align: right;">alu_nr</th>
+<th style="text-align: right;">pet_nr</th>
+<th style="text-align: right;">percentage_false</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">HPS</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">45</td>
+<td style="text-align: right;">0.0425532</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">2</td>
+<td style="text-align: left;">HPV</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">22</td>
+<td style="text-align: right;">0.0000000</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</figure>
+</div>
+</div>
+<p><a href="#tbl-compost" class="quarto-xref">Table&nbsp;3</a> shows the amnount of correctly and incorrectly deposited waste at the compost station in kilograms and percentages.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>compost <span class="sc">|&gt;</span> </span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable</span>(<span class="at">full_width =</span> F)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="tbl-compost" class="cell quarto-float anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-compost-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;3: Overview of incorrectly deposited waste at compost station
+</figcaption>
+<div aria-describedby="tbl-compost-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output-display">
+<table class="do-not-create-environment cell table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: right;">X</th>
+<th style="text-align: left;">location</th>
+<th style="text-align: right;">organic_kg</th>
+<th style="text-align: right;">general_waste_kg</th>
+<th style="text-align: right;">percentage_false</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">HPS</td>
+<td style="text-align: right;">0.9</td>
+<td style="text-align: right;">0.05</td>
+<td style="text-align: right;">0.0526316</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</figure>
+</div>
+</div>
 </section>
 <section id="conclusions" class="level1">
 <h1>Conclusions</h1>
-<p>Even though there is only little data available from sampling, it clearly shows how effective recycling stations are compared to single waste bins. The data suggests that a lot of students recycle properly if there is a recycling station available, but don’t recycle if there is a single waste bin near them. This assumption is supported by a study <span class="citation" data-cites="kelly2006university">(<a href="#ref-kelly2006university" role="doc-biblioref">Kelly et al., 2006</a>)</span>, where 83% of the students interviewed stated that they would recycle more often if there were more bins around campus. Therefore, a way to improve recycling would be to install more recycling stations maybe to the point where there are no single waste bins around. Another approach would be to remove the single waste bins. Maybe students would be willing to walk further to throw away their waste rather than littering, though this would have to be further investigated.</p>
+<ul>
+<li><p>Students at ETH Campus Hönggerberg recycle aluminium, pet and compost properly if there is a recycling station available</p></li>
+<li><p>Students at ETH Campus Hönggerberg don’t recycle properly, if there is only a single waste bin available. This assumption is supported by a study <span class="citation" data-cites="kelly2006university">(<a href="#ref-kelly2006university" role="doc-biblioref">Kelly et al., 2006</a>)</span>, where 83% of the students interviewed stated that they would recycle more often if there were more bins around campus.</p></li>
+<li><p>A way to improve recycling would be to install more recycling stations maybe to the point where there are no single waste bins around. Another approach would be to remove the single waste bins. Maybe students would be willing to walk further to throw away their waste rather than littering, though this would have to be further investigated.</p></li>
+<li><p>Another way to improve recycling could be to put up signs at single waste bins with the location of the nearest recycling station. If students knew the nearest location of the recylcing station, they are maybe willing to walk a few extra meters instead of throwing away their waste into the wrong bins.</p></li>
+</ul>
 </section>
 <section id="references" class="level1 unnumbered">
 
@@ -154,19 +347,16 @@ Kelly, T. C., Mason, I. G., Leiss, M. W., &amp; Ganesh, S. (2006). University co
 </div>
 </div></section><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a></div></div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{kappeler2024,
   author = {Kappeler, Fabienne},
-  title = {What Is the Difference in the Amount of Incorrectly Deposited
-    Waste in a Single Bin Compared to a Recycling Station at {ETH}
-    {Campus} {Hönggerberg}},
-  date = {2024-06-03},
+  title = {How Well Do Students Recycle at {ETH} {Campus} {Hönggerberg}},
+  date = {2024-06-04},
   url = {https://www.example.com},
   langid = {en},
   abstract = {The abstract will be placed here. Breaks can be added by
     hitting return on the keyboard.}
 }
 </code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-kappeler2024" class="csl-entry quarto-appendix-citeas" role="listitem">
-Kappeler, F. (2024, June 3). <em>What is the difference in the amount of
-incorrectly deposited waste in a single bin compared to a recycling
-station at ETH Campus Hönggerberg</em>. My Blog. <a href="https://www.example.com">https://www.example.com</a>
+Kappeler, F. (2024, June 4). <em>How well do students recycle at ETH
+Campus Hönggerberg</em>. My Blog. <a href="https://www.example.com">https://www.example.com</a>
 </div></div></section></div></main>
 <!-- /main column -->
 <script id="quarto-html-after-body" type="application/javascript">
