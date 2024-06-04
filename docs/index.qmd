@@ -26,15 +26,13 @@ editor: visual
 
 # Introduction
 
-Solid waste management represents a big challenge worldwide [@kassim2012importance]. One approach to waste management is recycling. To do so successfully, the participation of the government, residents, businesses and other institutions is needed, including ETH Zurich. For students to recycle properly, the neccessary infrastructure has to be present, such as a good amount of recycling stations.
-
-This study examines the amount of incorrectly deposited waste at recycling stations and at single waste bins. To do so, waste was separated at recycling stations and at single waste bins in various buildings on the ETH Campus Hönggerberg.
+Solid waste management is a major global challenge. One component of solid waste management is recycling [@kassim2012importance]. To be successful, this requires the participation of the government, residents, businesses and other institutions, including ETH Zurich. For students to recycle properly, the necessary infrastructure must be in place. This study examines the effectiveness of the recycling stations at ETH Hönggerberg by collecting data on the amount of incorrectly deposited waste at recycling stations and individual waste bins at ETH Hönggerberg. 
 
 # Methods
 
-To sample the data, the Waste of two recycling stations which include a pet, aluminium, compost, and general waste compartment and two single waste bins were collected and sorted. The waste was sorted into pet, alu, glas, compost, paper, and general waste. To identify the amount of waste the content of the different waste categories was weighed. In order to better represent the contamination in the pet and aluminum station, the number of bottles and cans was also counted, as there was still some liquid in the containers, which has a major influence on the weight due to the light weight of the containers.
+To collect the data, the waste of two recycling stations which included a pet, aluminium, compost, and general waste compartment and two single waste bins were collected and sorted. The waste was sorted into pet, aluminium, glass, compost, paper, and general waste. To determine the amount of waste, the portions of the different waste categories were weighed. As there was still some liquid in the pet bottles and aluminium cans, the weight of the pet and aluminium waste portions was not perfectly represented by the weight. Therefore, in order to better represent the amount of bottles and cans in the aluminium and pet stations, the number of bottles and cans was counted as well. 
 
-The data was sampled between 8:00 and 9:00 on a tuesday after a bank holiday. Due to this, parts of the waste stations and waste bins were empty or had only little content.
+The data was collected between 8:00 am and 9:00 am on a Tuesday after a bank holiday. As a result, some of the waste stations and waste bins were empty or had only little content.
 
 # Results
 
@@ -54,7 +52,7 @@ data_long <- read.csv(here::here("data/final/data_long.csv"))
 data_long_pa <- read.csv(here::here("data/final/data_long_pa.csv"))
 ```
 
-@fig-overview gives an overview of how well students recycle at ETH Campus Hönggerberg. The plot shows well that at recycling stations only very little waste is deposited incorrectly, whereas at the single waste bin, half of the waste is deposited incorrectly.
+@fig-overview gives an overview of how well students at the ETH Campus Hönggerberg recycle. The graph clearly shows that at recycling stations only very little waste is deposited incorrectly, whereas at the single waste bin, half of the waste is deposited incorrectly.
 
 ```{r}
 #| label: fig-overview
@@ -73,7 +71,7 @@ ggplot(data = data_long,
        fill = "Waste Type")
 ```
 
-As the aluminium cans and pet bottles often still contained liquids and therefore the weight doesn't represent the content correctly, the number of bottles and cans was also registered. Plot @fig-pet-alu shows the numbers of pet bottles and aluminium cans correclty and incorrectly deposited at the recycling stations based on the number of cans and bottles.
+As mentioned above, the number of bottles and cans was also recorded @fig-pet-alu shows the number of pet bottles and aluminium cans correctly and incorrectly deposited at the recycling stations based.
 
 ```{r}
 #| label: fig-pet-alu
@@ -92,45 +90,37 @@ ggplot(data = data_long_pa,
        fill = "Waste Type")
 ```
 
-@tbl-alu and @tbl-pet show the amount of pet bottles deposited into the recycling bins and the percentage of wrongly deposited items
+@tbl-alu and @tbl-pet show the amount of pet bottles placed in the recycling bins and the percentage of misplaced items.
 
 ```{r}
 #| label: tbl-alu
-#| tbl-cap: Overview of how many pet bottles are incorrectly thrown into the aluminium recycling station
+#| tbl-cap: Overview of how many pet bottles and aluminium cans are thrown into the aluminium recycling station
 #| 
 
 alu |> 
-  kable(full_width = F)
+  kable(full_width = F,
+        col.names = c("id","location", "#alu", "#pet", "percentage false waste"))
 ```
 
 ```{r}
 #| label: tbl-pet
-#| tbl-cap: Overview of how many aluminium bottles are incorrectly thrown away into the pet recycling station
+#| tbl-cap: Overview of how many pet bottles and aluminium cans are thrown away into the pet recycling station
 #| 
 
 pet |> 
-  kable(full_width = F)
+  kable(full_width = F,
+        col.names = c("id","location", "#alu", "#pet", "percentage false waste"))
 ```
 
-@tbl-compost shows the amnount of correctly and incorrectly deposited waste at the compost station in kilograms and percentages.
-
-```{r}
-#| label: tbl-compost
-#| tbl-cap: Overview of incorrectly deposited waste at compost station 
-#| 
-
-compost |> 
-  kable(full_width = F)
-```
 
 # Conclusions
 
--   Students at ETH Campus Hönggerberg recycle aluminium, pet and compost properly if there is a recycling station available
+-   Students at the ETH Campus Hönggerberg recycle aluminium, pet and compost properly if there is a recycling station available.
 
--   Students at ETH Campus Hönggerberg don't recycle properly, if there is only a single waste bin available. This assumption is supported by a study [@kelly2006university], where 83% of the students interviewed stated that they would recycle more often if there were more bins around campus.
+-   Students at ETH Campus Hönggerberg don't recycle properly, if there is only a single waste bin available. This assumption is supported by a study [@kelly2006university], in which 83% of the students interviewed at Massey University in New Zealand stated that they would recycle more often if there were more bins on campus.
 
--   A way to improve recycling would be to install more recycling stations maybe to the point where there are no single waste bins around. Another approach would be to remove the single waste bins. Maybe students would be willing to walk further to throw away their waste rather than littering, though this would have to be further investigated.
+-   Therefore one way to improve recycling would be to install more recycling stations, perhabs to the point where there are no single waste bins around anymore. Another approach would be to remove the single waste bins. Maybe students would be willing to walk further to dispose of their waste if, though this would have to be further investigated.
 
--   Another way to improve recycling could be to put up signs at single waste bins with the location of the nearest recycling station. If students knew the nearest location of the recylcing station, they are maybe willing to walk a few extra meters instead of throwing away their waste into the wrong bins.
+-   Another way to improve recycling could be to put up signs at single waste bins with the location of the nearest recycling station. If students knew the location of the nearest recylcing station, they may would be willing to walk a few extra steps, instead of throwing away their waste into the wrong bins. This would be worth to investigate further.
 
 # References

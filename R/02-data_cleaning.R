@@ -19,6 +19,7 @@ data_processed <- data_processed |>
 
 glimpse(data_processed)
 
+#store analysis ready data in processed folder
 write.csv(data_processed, "data/processed/data_processed.csv")
 
 
