@@ -8,8 +8,7 @@ author:
     affiliation: 
       - name: ETH Zurich
         url: https://ethz.ch/de.html
-abstract: 
-  The abstract will be placed here. Breaks can be added by hitting return on the keyboard.
+abstract: "This study examines the effectiveness of recycling stations at ETH Hönggerberg by analyzing incorrectly deposited waste at recycling stations and individual waste bins. Findings indicate that students recycle properly when recycling stations are available, but not with single waste bins. Recommendations to improve recycling include installing more recycling stations, eliminating single waste bins, and placing signs to guide students to the nearest recycling stations."
 license: "CC BY"
 format:
   html: 
@@ -47,7 +46,6 @@ library(dplyr)
 ```{r}
 alu <- read.csv(here::here("data/final/data_alu.csv"))
 pet <- read.csv(here::here("data/final/data_pet.csv"))
-compost <- read.csv(here::here("data/final/data_compost.csv"))
 data_long <- read.csv(here::here("data/final/data_long.csv"))
 data_long_pa <- read.csv(here::here("data/final/data_long_pa.csv"))
 ```
@@ -99,7 +97,7 @@ ggplot(data = data_long_pa,
 
 alu |> 
   kable(full_width = F,
-        col.names = c("id","location", "#alu", "#pet", "percentage false waste"))
+        col.names = c("id","location", "#alu", "#pet", "percentage false waste [%]"))
 ```
 
 ```{r}
@@ -109,7 +107,7 @@ alu |>
 
 pet |> 
   kable(full_width = F,
-        col.names = c("id","location", "#alu", "#pet", "percentage false waste"))
+        col.names = c("id","location", "#alu", "#pet", "percentage false waste [%]"))
 ```
 
 

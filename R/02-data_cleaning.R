@@ -23,7 +23,7 @@ glimpse(data_processed)
 write.csv(data_processed, "data/processed/data_processed.csv")
 
 
-#pivot longer (kg)
+#pivot longer (kg) for figure
 data_long <- data_processed |> 
   mutate(bin_type = as.factor(bin_type)) |> 
   group_by(bin_type) |> 
@@ -54,7 +54,7 @@ data_long <- data_processed |>
 data_long
 write.csv(data_long, "data/final/data_long.csv")
 
-#pivot longer number (pet, alu)
+#pivot longer number (pet, alu) for figure
 data_long_pa <- data_processed |> 
   mutate(bin_type = as.factor(bin_type)) |> 
   group_by(bin_type) |> 
@@ -80,32 +80,19 @@ data_long_pa
 write.csv(data_long_pa, "data/final/data_long_pa.csv")
 
 
-#preparing data for analysis
-data_waste_bin <- data_processed |> 
-  filter(bin_type == "waste station" | bin_type == "sinlge waste bin") |> 
-  filter(total_kg != "0") |> 
-  summarise(percentage_false = pet_kg/total_kg*100)
-glimpse(data_waste_bins)  
-write.csv(data_waste_bin, "data/final/data_waste_bin.csv")
-
+#preparing data for tables
 data_alu <- data_processed |> 
   filter(bin_type == "alu station")|> 
-  mutate(percentage_false = pet_nr / (pet_nr + alu_nr)) |> 
+  mutate(percentage_false = pet_nr / (pet_nr + alu_nr) *100) |> 
   select(location, alu_nr, pet_nr, percentage_false)
 glimpse(data_alu)
 write.csv(data_alu, "data/final/data_alu.csv")
 
 data_pet <- data_processed |> 
   filter(bin_type == "pet station")|> 
-  mutate(percentage_false = alu_nr / (alu_nr+pet_nr)) |> 
+  mutate(percentage_false = alu_nr / (alu_nr+pet_nr) *100) |> 
   select(location, alu_nr, pet_nr, percentage_false)
 glimpse(data_pet)
 write.csv(data_pet, "data/final/data_pet.csv")
 
-data_compost <- data_processed |> 
-  filter(bin_type == "compost station") |> 
-  filter(total_kg != "0") |> 
-  mutate(percentage_false = general_waste_kg/total_kg) |> 
-  select(location, organic_kg, general_waste_kg, percentage_false) 
-glimpse(data_compost)
-write.csv(data_compost, "data/final/data_compost.csv")
+
