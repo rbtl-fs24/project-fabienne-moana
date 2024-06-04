@@ -55,6 +55,29 @@ write.csv(data_long, "data/final/data_long.csv")
 
 #pivot longer number (pet, alu)
 data_long_pa <- data_processed |> 
+  mutate(bin_type = as.factor(bin_type)) |> 
+  group_by(bin_type) |> 
+  summarise(alu_nr = sum(alu_nr),
+            alu_kg = sum(alu_kg),
+            pet_nr = sum(pet_nr),
+            pet_kg = sum(pet_kg),
+            paper_kg = sum(paper_kg),
+            glas_kg = sum(glas_kg),
+            organic_kg = sum(organic_kg),
+            general_waste_kg = sum(general_waste_kg),
+            total_kg = sum(total_kg)) |> 
+  select(-glas_kg, -paper_kg) |> 
+  mutate(alu = alu_nr/(alu_nr+pet_nr),
+         pet = pet_nr/(alu_nr+pet_nr)) |> 
+  select(bin_type, alu, pet) |> 
+  filter(bin_type == "alu station" | bin_type == "pet station") |> 
+  pivot_longer(cols = !bin_type,
+              names_to = "waste_type",
+              values_to = "percentage") 
+data_long_pa
+
+write.csv(data_long_pa, "data/final/data_long_pa.csv")
+
 
 #preparing data for analysis
 data_waste_bin <- data_processed |> 

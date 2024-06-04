@@ -51,12 +51,16 @@ alu <- read.csv(here::here("data/final/data_alu.csv"))
 pet <- read.csv(here::here("data/final/data_pet.csv"))
 compost <- read.csv(here::here("data/final/data_compost.csv"))
 data_long <- read.csv(here::here("data/final/data_long.csv"))
-
+data_long_pa <- read.csv(here::here("data/final/data_long_pa.csv"))
 ```
 
-Plot xy gives an overview of how well students recycle at ETH Campus Hönggerberg. The plot shows well that at recycling stations only very little waste is deposited incorrectly, whereas at the single waste bin, half of the waste is deposited incorrectly.
+@fig-overview gives an overview of how well students recycle at ETH Campus Hönggerberg. The plot shows well that at recycling stations only very little waste is deposited incorrectly, whereas at the single waste bin, half of the waste is deposited incorrectly.
 
 ```{r}
+#| label: fig-overview
+#| fig-cap: Overview of percentage of waste type in each bin category
+
+
 ggplot(data = data_long,
        mapping = aes(x = bin_type,
                      y = percentage,
@@ -65,11 +69,30 @@ ggplot(data = data_long,
            stat="identity")+
    labs(x = "Bin Type",
        y = "Percentage",
-       title = "Overview of percentage of waste type in each bin category",
+       title = NULL, #no title because already in the figure caption
        fill = "Waste Type")
 ```
 
-As the aluminium cans and pet bottles often still contained liquids and therefore the weight doesn't represent the content correctly, the number of bottles and cans was also registered. @tbl-alu and @tbl-pet show the numbers of pet bottles and aluminium cans correclty and incorrectly deposited at the recycling stations.
+As the aluminium cans and pet bottles often still contained liquids and therefore the weight doesn't represent the content correctly, the number of bottles and cans was also registered. Plot @fig-pet-alu shows the numbers of pet bottles and aluminium cans correclty and incorrectly deposited at the recycling stations based on the number of cans and bottles.
+
+```{r}
+#| label: fig-pet-alu
+#| fig-cap: Overview of percentage of correctly and incorrectly deposited pet bottles and alu cans
+
+
+ggplot(data = data_long_pa,
+       mapping = aes(x = bin_type,
+                     y = percentage,
+                     fill = waste_type)) +
+  geom_bar(position="stack", 
+           stat="identity")+
+   labs(x = "Bin Type",
+       y = "Percentage",
+       title = NULL, #no title because there is already figure caption
+       fill = "Waste Type")
+```
+
+@tbl-alu and @tbl-pet show the amount of pet bottles deposited into the recycling bins and the percentage of wrongly deposited items
 
 ```{r}
 #| label: tbl-alu
