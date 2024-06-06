@@ -1,0 +1,17 @@
+"","bin_type","waste_type","percentage"
+"1","alu station","alu",1
+"2","alu station","pet",0
+"3","alu station","organic",0
+"4","alu station","general_waste",0
+"5","compost station","alu",0
+"6","compost station","pet",0
+"7","compost station","organic",0.947368421052632
+"8","compost station","general_waste",0.0526315789473684
+"9","pet station","alu",0.0677966101694915
+"10","pet station","pet",0.915254237288136
+"11","pet station","organic",0
+"12","pet station","general_waste",0.0169491525423729
+"13","sinlge waste bin","alu",0
+"14","sinlge waste bin","pet",0.5
+"15","sinlge waste bin","organic",0
+"16","sinlge waste bin","general_waste",0.5

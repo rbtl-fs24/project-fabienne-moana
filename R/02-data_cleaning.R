@@ -24,7 +24,7 @@ write.csv(data_processed, "data/processed/data_processed.csv")
 
 
 #pivot longer (kg) for figure
-data_long <- data_processed |> 
+figure_overview <- data_processed |> 
   mutate(bin_type = as.factor(bin_type)) |> 
   group_by(bin_type) |> 
   summarise(alu_nr = sum(alu_nr),
@@ -51,8 +51,8 @@ data_long <- data_processed |>
                names_to = "waste_type",
                values_to = "percentage") 
 
-data_long
-write.csv(data_long, "data/final/data_long.csv")
+figure_overview
+write.csv(figure_overview, "data/final/figure_overview.csv")
 
 #pivot longer number (pet, alu) for figure
 data_long_pa <- data_processed |> 
@@ -77,7 +77,7 @@ data_long_pa <- data_processed |>
               values_to = "percentage") 
 data_long_pa
 
-write.csv(data_long_pa, "data/final/data_long_pa.csv")
+write.csv(data_long_pa, "data/final/figure_pet_alu.csv")
 
 
 #preparing data for tables
@@ -86,13 +86,13 @@ data_alu <- data_processed |>
   mutate(percentage_false = pet_nr / (pet_nr + alu_nr) *100) |> 
   select(location, alu_nr, pet_nr, percentage_false)
 glimpse(data_alu)
-write.csv(data_alu, "data/final/data_alu.csv")
+write.csv(data_alu, "data/final/table_alu.csv")
 
 data_pet <- data_processed |> 
   filter(bin_type == "pet station")|> 
   mutate(percentage_false = alu_nr / (alu_nr+pet_nr) *100) |> 
   select(location, alu_nr, pet_nr, percentage_false)
 glimpse(data_pet)
-write.csv(data_pet, "data/final/data_pet.csv")
+write.csv(data_pet, "data/final/table_pet.csv")
 
 

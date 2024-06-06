@@ -1,0 +1,5 @@
+"","X","bin_type","waste_type","percentage"
+"1",1,"alu station","alu",1
+"2",2,"alu station","pet",0
+"3",3,"pet station","alu",0.0289855072463768
+"4",4,"pet station","pet",0.971014492753623
